@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/head') %>
+    <title>Home</title>
+</head>
+<body>
+    <%- include('./partials/nav') %>
+    <div class="container mt-3">
+        <h2><%= blog.title %></h2>
+        <img src="<%= blog.coverImageURL %>" width="700px" class="img-fluid" alt="Cover Image">
+        <pre class="mt-2"><%= blog.body %></pre>
+        <img src="<%= blog.createdBy.profileImageUrl %>" width="40px">
+        <%= blog.createdBy.fullName %>
+    </div>
+    <div class="container mt-3">
+        <h3>Comments (<%= comments.length %>)</h3>
+        <% if(locals.user) { %>
+            <form action="/blog/comment/<%= blog._id %>" method="post">
+                <div class="mb-3">
+                    <label for="content" class="my-2">Comment</label>
+                    <input type="text" name="content" id="content" placeholder="Enter comment" class="form-control"/>
+                </div> 
+                <button type="submit" class="btn btn-primary my-2">Submit</button>
+            </form>
+            <% } else { %>
+
+                <div class="alert alert-warning">
+                    <a href="/user/signin">Signin</a> to comment
+                </div>
+            <% } %>
+            <div class="mt-3">
+                <% comments.forEach(comment => { %>
+                    <div class="card my-2">
+                        <div class="card-body">
+                            <img src="<%= comment.createdBy.profileImageUrl %>" width="30px">
+                            <%= comment.createdBy.fullName %>
+                            <p><%= comment.content %></p>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+                
+    </div>
+    
+    <%- include('./partials/script') %>
+</body>
+</html>
