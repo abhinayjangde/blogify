@@ -4,8 +4,6 @@ import path from "path"
 import Blog from "../models/blog.js"
 import Comment from "../models/comment.js"
 const router = Router()
-
-
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, path.resolve(`./public/uploads/`))
@@ -25,6 +23,7 @@ router.get("/add-new", (req, res) => {
 })
 router.post("/", upload.single("coverImage"), async (req, res) => {
     const { title, body } = req.body
+    console.log(req.user._id)
     const blog = await Blog.create({
         body,
         title,
