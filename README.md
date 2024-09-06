@@ -2,4 +2,4 @@
 
 > Feel free to fork and use.
 
-## Happy Coding
+## Happy Coding.
