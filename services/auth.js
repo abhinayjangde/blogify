@@ -1,5 +1,5 @@
 import JWT from "jsonwebtoken"
-const secret = "$uper$ecret1234"
+const secret = process.env.JWT_SECRET || "$uper$ecret1234"
 function createToken(user) {
     const payload = {
         _id: user._id,
@@ -12,7 +12,7 @@ function createToken(user) {
 }
 
 function verifyToken(token) {
-    const payload = JWT.verify(token,secret)
+    const payload = JWT.verify(token, secret)
     return payload
 }
 

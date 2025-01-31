@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark" data-bs-theme="dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/">Complete-Blog</a>
+    <a class="navbar-brand" href="/">Blogify</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
       aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -30,7 +30,7 @@
             <li class="nav-item">
               <a class="nav-link" href="/user/signup">Create Account</a>
             </li>
-          <% } %>
+            <% } %>
 
       </ul>
     </div>
@@ -39,7 +39,8 @@
 
 <% if (locals.error){ %>
   <div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>Error!</strong> <%= locals.error %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <strong>Error!</strong>
+    <%= locals.error %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
   <% } %>

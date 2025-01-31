@@ -1,18 +1,18 @@
 {
-  "name": "complete-blog",
+  "name": "blogify",
   "version": "1.0.0",
   "description": "The completer blogging website using Node.js, Tailwindcss, EJS, and MongoDB",
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [
     "nodejs",
     "mongodb"
   ],
-  "author": "Abhinay Jangde",
+  "author": "Abhinay Jangde <abhinayjangde@gmail.com>",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.1",

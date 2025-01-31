@@ -8,7 +8,8 @@ import cookieParser from "cookie-parser"
 import checkForAuthCookie from "./middlewares/auth.js"
 import Blog from "./models/blog.js"
 const app = express()
-const port = 8000
+
+const port = process.env.PORT || 8000
 
 db()
 app.use(express.urlencoded({ extended: true }))
@@ -18,7 +19,7 @@ app.use(cookieParser())
 app.use(checkForAuthCookie("token"))
 app.use(express.static(path.resolve("./public")))
 app.get("/", async (req, res) => {
-  const allBlogs = await Blog.find({}).sort({createdAt: -1})
+  const allBlogs = await Blog.find({}).sort({ createdAt: -1 })
   return res.render("home", {
     user: req.user,
     blogs: allBlogs
